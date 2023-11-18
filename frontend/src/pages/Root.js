@@ -1,17 +1,20 @@
-import { Outlet } from "react-router-dom";
+import { Outlet, useNavigation } from "react-router-dom";
 
 import MainNavigation from "../components/MainNavigation";
 
-const RootLayout = () => {
+function RootLayout() {
+  // const navigation = useNavigation();
+
   return (
     <>
       <MainNavigation />
       <main>
+        {/* {navigation.state === 'loading' && <p>Loading...</p>} */}
+        <Outlet />{" "}
         {/* defines where the content of the child route should be rendered */}
-        <Outlet />
       </main>
     </>
   );
-};
+}
 
 export default RootLayout;
